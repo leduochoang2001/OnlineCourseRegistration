@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
-import Cart from '../components/cart';
+import IMG from '../statics/img/logo.png'
 
 function Home() {
 
     return (
-        <div>
-            <h1>This is Home Page</h1>
+        <div className="home-page">
+            <div className="logo">
+                <img src={IMG} alt="" />
+            </div>
+            <div className="welcome-text">
+                <h1>Welcome Our Page!</h1>
+                <a href="/courses">
+                    Go to Course!
+                </a>
+            </div>
         </div>
     )
 }

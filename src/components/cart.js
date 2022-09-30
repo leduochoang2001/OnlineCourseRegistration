@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { Container, NavItem } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
+export var totalCost
 
 export default function Cart(props) {
     const { cartItems, onRemove, } = props
@@ -8,7 +11,8 @@ export default function Cart(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    var totalCost = 0
+    totalCost = 0
+
     cartItems.forEach(element => {
         totalCost = element.price + totalCost
     });
@@ -32,29 +36,60 @@ export default function Cart(props) {
 
             <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Items</Offcanvas.Title>
+                    <Offcanvas.Title>Courses Registered</Offcanvas.Title>
                 </Offcanvas.Header>
-                <div>Quantity:{cartItems.length}</div>
                 <Offcanvas.Body style={{ alignItems: 'center' }}>
-                    <div>
-                        {cartItems.length === 0 && <div>Cart is empty </div>}
+                    <Container>
                         <div>
-                            {cartItems.map((item) => (
-                                <div className="row">
-                                    <img src={item.image} style={{ height: '5rem', width: '15rem' }} />
-                                    <div>{item.name}</div>
-                                    <div>{`$ ${item.price}`}</div>
-                                    <div>
-                                        <Button onClick={() => onRemove(item)} >Remove Course</Button>
+                            {cartItems.length === 0 && <div>Cart is empty,please add courses you want to register! </div>}
+                            {cartItems.map(item => (
+                                <div class="container">
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title">
+                                                        <div class="row">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div><img src={item.image} style={{ height: '5rem', width: '15rem' }} />
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <h4 class="product-name"><strong>{item.name}</strong></h4>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="col-xs-6 text-right">
+                                                                <h6><strong>{`$ ${item.price}`}</strong></h6>
+                                                            </div>
+                                                            <div class="col-xs-2">
+                                                                <button type="button" class="btn btn-danger" onClick={() => onRemove(item)}>Remove</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </Container>
                 </Offcanvas.Body>
-                <div>
-                    {`Total Cost is : $ ${totalCost}`} <br />
-                    <Button>Payment</Button>
+                <div class="panel">
+                    <div class="row text-center">
+                        <div class="col-xs-9">
+                            <h4 class="text-right">Total <strong>{`$ ${totalCost}`}</strong></h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-success btn-block">
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </Offcanvas>
         </>
