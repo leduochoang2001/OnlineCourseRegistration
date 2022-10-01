@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="transparent" variant="dark">
                 <Container>
                     <Navbar.Brand href="/">CDB</Navbar.Brand>
                     <Nav className="me-auto">

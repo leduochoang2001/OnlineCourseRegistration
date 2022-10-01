@@ -43,7 +43,7 @@ export default function Courses() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:3000/courses")
+        fetch("http://localhost:8080/courses")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -70,7 +70,7 @@ export default function Courses() {
                 <div className='search-box'>
                     <input type="text" id='search-input' placeholder='Search Course'
                     />
-                    <button id='btn-search' onClick={() => {
+                    <button id='btn-search' className='btn-act' onClick={() => {
                         setSearchInput(document.getElementById('search-input').value)
                         setIsTyping(false)
                     }}><img src={IMG} alt="" /></button>
@@ -96,8 +96,8 @@ export default function Courses() {
                                             <Card.Text>
                                                 {`$ ${item.price}`}
                                             </Card.Text>
-                                            <Button variant="primary" className='cardstl'>View Course</Button>
-                                            <Button onClick={() => onAdd(item)} variant="primary" className='cardstl' style={{ 'margin-left': '16px' }}>Register</Button>
+                                            <Button variant="primary" className='cardstl btn-act'>View Course</Button>
+                                            <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
                                         </Card.Body>
                                     </Card>

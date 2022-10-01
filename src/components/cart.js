@@ -66,7 +66,7 @@ export default function Cart(props) {
                                                                 <h6><strong>{`$ ${item.price}`}</strong></h6>
                                                             </div>
                                                             <div class="col-xs-2">
-                                                                <button type="button" class="btn btn-danger" onClick={() => onRemove(item)}>Remove</button>
+                                                                <button type="button" class="btn btn-danger btn-act cardstl" onClick={() => onRemove(item)}>Remove</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -85,7 +85,9 @@ export default function Cart(props) {
                             <h4 class="text-right">Total <strong>{`$ ${totalCost}`}</strong></h4>
                         </div>
                         <div class="col-xs-3">
-                            <button type="button" class="btn btn-success btn-block">
+                            <button type="button" class="btn btn-success btn-block btn-act" onClick={() => {
+                                totalCost === 0 && alert('Do not have any course in cart! ')
+                            }}>
                                 Checkout
                             </button>
                         </div>

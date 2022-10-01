@@ -28,7 +28,7 @@
 }
 
 .cardstl:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
@@ -157,4 +157,10 @@
   min-height: 100vh;
   background-size: cover;
 
+}
+
+.btn-act:active {
+  background-color: gray;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
