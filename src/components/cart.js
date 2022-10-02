@@ -48,25 +48,22 @@ export default function Cart(props) {
                                     <div class="row">
                                         <div class="col-xs-8">
                                             <div class="panel panel-info">
-                                                <div class="panel-heading">
-                                                    <div class="panel-title">
-                                                        <div class="row">
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="panel-body">
                                                     <div class="row">
-                                                        <div><img src={item.image} style={{ height: '5rem', width: '15rem' }} />
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <h4 class="product-name"><strong>{item.name}</strong></h4>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <div class="col-xs-6 text-right">
-                                                                <h6><strong>{`$ ${item.price}`}</strong></h6>
+                                                        <div className="cart-items">
+                                                            <div><img src={item.image} style={{ height: '7rem', width: '15rem', borderStyle: 'ridge', borderRadius: '20px' }} />
                                                             </div>
-                                                            <div class="col-xs-2">
-                                                                <button type="button" class="btn btn-danger btn-act cardstl" onClick={() => onRemove(item)}>Remove</button>
+                                                            <br />
+                                                            <div class="col-xs-4">
+                                                                <h4 class="product-name"><strong>{item.name}</strong></h4>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="col-xs-6 text-right">
+                                                                    <h6><strong>{`$ ${item.price}`}</strong></h6>
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <button type="button" class="btn btn-danger btn-act cardstl" onClick={() => onRemove(item)}>Remove</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

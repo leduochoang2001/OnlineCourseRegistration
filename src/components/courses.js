@@ -36,9 +36,8 @@ export default function Courses() {
     }
 
     const getItemSearch = (itemName) => {
-        var itemsFound
-        return itemsFound = items.find(x => {
-            return x.name && x.name.includes(itemName)
+        return items.filter(x => {
+            return x.name.includes(itemName)
         })
     }
 
@@ -66,6 +65,11 @@ export default function Courses() {
     }
     return (
         <div className='container-course'>
+            <div className='btn-home-cover'>
+                <a href="/">
+                    <button className='btn-home'><span>Home</span></button>
+                </a>
+            </div>
             <div className="search-cover">
                 <div className='search-box'>
                     <input type="text" id='search-input' placeholder='Search Course'
@@ -108,35 +112,35 @@ export default function Courses() {
                     </Row>
                 </Container>
                     :
-                    isTyping === true ?
-                        <div>searching..</div>
-                        :
-                        <Container>
-                            <Row>
+                    (<Container>
+                        <Row>
+                            {console.log(getItemSearch(searchInput))}
+                            {getItemSearch(searchInput).map(item => (
                                 <Col xs="4" >
                                     <div className="cardstl">
                                         <Card style={{ width: '18rem', margin: '16px' }}>
                                             <a href="/#!">
-                                                <Card.Img variant="top" src={getItemSearch(searchInput).image} />
+                                                <Card.Img variant="top" src={item.image} />
                                             </a>
                                             <Card.Body>
-                                                <Card.Title>{getItemSearch(searchInput).name}</Card.Title>
+                                                <Card.Title>{item.name}</Card.Title>
                                                 <Card.Text>
-                                                    {getItemSearch(searchInput).description}
+                                                    {item.description}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {`$ ${getItemSearch(searchInput).price}`}
+                                                    {`$ ${item.price}`}
                                                 </Card.Text>
-                                                <Button variant="primary" className='cardstl'>View Course</Button>
-                                                <Button onClick={() => onAdd(getItemSearch(searchInput))} variant="primary" className='cardstl' style={{ 'margin-left': '16px' }}>Register</Button>
+                                                <Button variant="primary" className='cardstl btn-act'>View Course</Button>
+                                                <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
                                             </Card.Body>
                                         </Card>
                                     </div>
                                 </Col >
-                            </Row>
-                        </Container>
-
+                            ))}
+                        </Row>
+                    </Container>
+                    )
 
             }
 
