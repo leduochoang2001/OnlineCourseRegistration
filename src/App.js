@@ -3,7 +3,7 @@ import './styles/App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/home'
 import Courses from './components/courses'
-import Payment from './pages/payment';
+import Payment from './components/payment';
 import About from './pages/about'
 
 import 'bootstrap/dist/css/bootstrap.min.css';

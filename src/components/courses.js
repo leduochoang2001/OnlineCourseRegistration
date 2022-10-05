@@ -37,7 +37,7 @@ export default function Courses() {
 
     const getItemSearch = (itemName) => {
         return items.filter(x => {
-            return x.name.includes(itemName)
+            return x.name.toLowerCase().includes(itemName.toLowerCase())
         })
     }
 
@@ -112,36 +112,36 @@ export default function Courses() {
                     </Row>
                 </Container>
                     :
-                    (<Container>
-                        <Row>
-                            {console.log(getItemSearch(searchInput))}
-                            {getItemSearch(searchInput).map(item => (
-                                <Col xs="4" >
-                                    <div className="cardstl">
-                                        <Card style={{ width: '18rem', margin: '16px' }}>
-                                            <a href="/#!">
-                                                <Card.Img variant="top" src={item.image} />
-                                            </a>
-                                            <Card.Body>
-                                                <Card.Title>{item.name}</Card.Title>
-                                                <Card.Text>
-                                                    {item.description}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    {`$ ${item.price}`}
-                                                </Card.Text>
-                                                <Button variant="primary" className='cardstl btn-act'>View Course</Button>
-                                                <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
+                    (
+                        <Container>
+                            <Row>
+                                {console.log(getItemSearch(searchInput))}
+                                {getItemSearch(searchInput).map(item => (
+                                    <Col xs="4" >
+                                        <div className="cardstl">
+                                            <Card style={{ width: '18rem', margin: '16px' }}>
+                                                <a href="/#!">
+                                                    <Card.Img variant="top" src={item.image} />
+                                                </a>
+                                                <Card.Body>
+                                                    <Card.Title>{item.name}</Card.Title>
+                                                    <Card.Text>
+                                                        {item.description}
+                                                    </Card.Text>
+                                                    <Card.Text>
+                                                        {`$ ${item.price}`}
+                                                    </Card.Text>
+                                                    <Button variant="primary" className='cardstl btn-act'>View Course</Button>
+                                                    <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                </Col >
-                            ))}
-                        </Row>
-                    </Container>
+                                                </Card.Body>
+                                            </Card>
+                                        </div>
+                                    </Col >
+                                ))}
+                            </Row>
+                        </Container>
                     )
-
             }
 
         </div >

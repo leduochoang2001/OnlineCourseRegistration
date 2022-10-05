@@ -4,7 +4,6 @@ import Header from '../layouts/header'
 import Footer from '../layouts/footer'
 
 function Home() {
-
     return (
         <div className="home-page">
             <Header></Header>

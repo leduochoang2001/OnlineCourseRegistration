@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import { Container, NavItem } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useNavigate } from 'react-router-dom';
 
-export var totalCost
 
 export default function Cart(props) {
     const { cartItems, onRemove, } = props
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const navigate = useNavigate()
 
-    totalCost = 0
+    var totalCost = 0
+    var coursesInCart = []
 
     cartItems.forEach(element => {
         totalCost = element.price + totalCost
+        coursesInCart.push(element.name.replace(' Course', ''))
     });
 
     return (
@@ -83,7 +86,13 @@ export default function Cart(props) {
                         </div>
                         <div class="col-xs-3">
                             <button type="button" class="btn btn-success btn-block btn-act" onClick={() => {
-                                totalCost === 0 && alert('Do not have any course in cart! ')
+                                if (totalCost === 0) {
+                                    alert('Do not have any course in cart! ')
+                                }
+                                else {
+                                    navigate('/payment')
+                                }
+
                             }}>
                                 Checkout
                             </button>
@@ -91,6 +100,12 @@ export default function Cart(props) {
                     </div>
                 </div>
             </Offcanvas>
+            {
+                localStorage.setItem('totalCost', totalCost)
+            }
+            {
+                localStorage.setItem('coursesInCart', coursesInCart)
+            }
         </>
     );
 }

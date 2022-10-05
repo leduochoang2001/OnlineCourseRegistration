@@ -5,6 +5,7 @@ const cors = require('cors')
 const db = require('./config/database')
 
 const Course = require('./models/Course')
+const RegisterInfo = require('./models/RegisterInfo')
 
 //connect to database
 db.connect()
@@ -19,9 +20,22 @@ app.get('/', (req, res) => {
 })
 
 app.get('/courses', (req, res) => {
-    Course.find({}, function (err, docs) {
+    Course.find({}, (err, docs) => {
         if (!err) res.send(docs)
     });
+})
+
+app.get('/registerinfo', (req, res) => {
+    RegisterInfo.find({}, (err, docs) => {
+        if (!err) res.send(docs)
+    });
+})
+
+app.post('/registerinfo', (req, res) => {
+    const data = req.body
+    console.log(data)
+    const info = new RegisterInfo(data)
+    info.save()
 })
 
 app.listen(port, () => {

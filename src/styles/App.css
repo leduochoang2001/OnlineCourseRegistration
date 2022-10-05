@@ -178,7 +178,7 @@
 
 .btn-home {
   border-radius: 20px;
-  background-color: gray;
+  background-color: blueviolet;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -265,4 +265,82 @@
   text-align: center;
   background-color: #474e5d;
   color: white;
+}
+
+/*payment page*/
+
+
+.body-payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0C4160;
+
+  padding: 30px 10px;
+}
+
+.card-payment {
+  max-width: 500px;
+  margin: auto;
+  color: black;
+  border-radius: 20 px;
+}
+
+.p-payment {
+  margin: 0px;
+}
+
+.container-payment .h8 {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.btn-payment.btn-primary {
+  width: 40%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+  border: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  border-radius: 20px;
+}
+
+
+.btn-payment.btn-primary:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.btn-payment.btn-primary.mb-3:hover .fas.fa-arrow-right {
+  transform: translate(15px);
+  transition: transform 0.2s ease-in;
+}
+
+.form-control {
+  color: white;
+  background-color: #223C60;
+  border: 2px solid transparent;
+  height: 60px;
+  padding-left: 20px;
+  vertical-align: middle;
+}
+
+.form-control:focus {
+  color: white;
+  background-color: #0C4160;
+  border: 2px solid #2d4dda;
+  box-shadow: none;
+}
+
+.text-payment {
+  font-size: 14px;
+  font-weight: 600;
 }
