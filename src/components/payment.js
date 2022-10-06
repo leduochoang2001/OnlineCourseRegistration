@@ -28,6 +28,13 @@ function Payment() {
 
     return (
         <div>
+            <div>
+                <div className='btn-home-cover'>
+                    <a href="/courses">
+                        <button className='btn-home'><span>{'<'}</span></button>
+                    </a>
+                </div>
+            </div>
             <div className='body-payment'>
                 <form action="">
                     <div className="container-payment">

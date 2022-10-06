@@ -28,7 +28,7 @@
 }
 
 .cardstl:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
@@ -198,7 +198,6 @@
 }
 
 .btn-home span:after {
-  content: '\00AB';
   position: absolute;
   opacity: 0;
   top: 0;
@@ -343,4 +342,20 @@
 .text-payment {
   font-size: 14px;
   font-weight: 600;
+}
+
+.btn-sort {
+  position: relative;
+  margin-top: 15px;
+}
+
+.nav-drop img {
+  width: 25px;
+  position: relative;
+  margin-left: 2px;
+}
+
+.sort-nav {
+  position: relative;
+  margin-left: 740px;
 }

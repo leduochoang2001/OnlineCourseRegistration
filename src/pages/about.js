@@ -1,6 +1,8 @@
 import React, { } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { useState } from 'react';
+
 export default function () {
 
     return (
@@ -15,7 +17,6 @@ export default function () {
                 <p>Some text about who we are and what we do.</p>
                 <p>Resize the browser window to see that this page is responsive by the way.</p>
             </div>
-
         </div>
     )
 }
