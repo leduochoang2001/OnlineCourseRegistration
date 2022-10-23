@@ -18,7 +18,7 @@ export default function Courses() {
     const [items, setItems] = useState([]);
     const [cartItems, setCardItems] = useState([])
     const [searchInput, setSearchInput] = useState('')
-    const [isTyping, setIsTyping] = useState(true)
+    const [isSearching, setIsSearching] = useState(false)
     const [selected, setSelected] = useState('')
 
     const handleSelected = (e) => {
@@ -97,11 +97,10 @@ export default function Courses() {
             <div>
                 <div className="search-cover">
                     <div className='search-box'>
-                        <input type="text" id='search-input' placeholder='Search Course'
+                        <input type="text" id='search-input' placeholder='Search Course' onChange={() => setIsSearching(true)}
                         />
                         <button id='btn-search' className='btn-act' onClick={() => {
                             setSearchInput(document.getElementById('search-input').value)
-                            setIsTyping(false)
                         }}><img src={IMG} alt="" /></button>
                     </div>
                 </div>
@@ -126,68 +125,68 @@ export default function Courses() {
                 </Nav>
             </div>
             {
-                searchInput !== '' && (
-                    <Container>
-                        <Row>
-                            {getItemSearch(searchInput).map(item => (
-                                <Col xs="4" >
-                                    <div className="cardstl">
-                                        <Card style={{ width: '18rem', margin: '16px' }}>
-                                            <a href="/#!">
-                                                <Card.Img variant="top" src={item.image} />
-                                            </a>
-                                            <Card.Body>
-                                                <Card.Title>{item.name}</Card.Title>
-                                                <Card.Text>
-                                                    {item.description}
-                                                </Card.Text>
-                                                <Card.Text>
-                                                    {`$ ${item.price}`}
-                                                </Card.Text>
-                                                <Button variant="primary" className='cardstl btn-act'>View Course</Button>
-                                                <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
+                isSearching && <Container>
+                    <Row>
+                        {getItemSearch(searchInput).map(item => (
+                            <Col xs="4" >
+                                <div className="cardstl">
+                                    <Card style={{ width: '18rem', margin: '16px' }}>
+                                        <a href="/#!">
+                                            <Card.Img variant="top" src={item.image} />
+                                        </a>
+                                        <Card.Body>
+                                            <Card.Title>{item.name}</Card.Title>
+                                            <Card.Text>
+                                                {item.description}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                {`$ ${item.price}`}
+                                            </Card.Text>
+                                            <Button variant="primary" className='cardstl btn-act'>View Course</Button>
+                                            <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                </Col >
-                            ))}
-                        </Row>
-                    </Container>
-                )
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            </Col >
+                        ))}
+                    </Row>
+                </Container>
             }
             {
                 localStorage.getItem('selected') === 'Min' && items.sort((a, b) => increaseSort(a, b)) && localStorage.clear('selected') ||
                 localStorage.getItem('selected') === 'Max' && items.sort((a, b) => decreaseSort(a, b)) && localStorage.clear('selected')
             }
-            <Container>
-                <Row>
-                    {items.map(item => (
-                        <Col xs="4" >
-                            <div className="cardstl">
-                                <Card style={{ width: '18rem', margin: '16px' }} key={item.id}>
-                                    <a href="/#!">
-                                        <Card.Img variant="top" src={item.image} />
-                                    </a>
-                                    <Card.Body>
-                                        <Card.Title>{item.name}</Card.Title>
-                                        <Card.Text>
-                                            {item.description}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {`$ ${item.price}`}
-                                        </Card.Text>
-                                        <Button variant="primary" className='cardstl btn-act'>View Course</Button>
-                                        <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
+            {
+                !isSearching && <Container>
+                    <Row>
+                        {items.map(item => (
+                            <Col xs="4" >
+                                <div className="cardstl">
+                                    <Card style={{ width: '18rem', margin: '16px' }} key={item.id}>
+                                        <a href="/#!">
+                                            <Card.Img variant="top" src={item.image} />
+                                        </a>
+                                        <Card.Body>
+                                            <Card.Title>{item.name}</Card.Title>
+                                            <Card.Text>
+                                                {item.description}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                {`$ ${item.price}`}
+                                            </Card.Text>
+                                            <Button variant="primary" className='cardstl btn-act'>View Course</Button>
+                                            <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        </Col>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            </Col>
 
-                    ))}
-                </Row>
-            </Container>
+                        ))}
+                    </Row>
+                </Container>
+            }
         </div >
     )
 }

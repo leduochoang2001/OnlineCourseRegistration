@@ -20,6 +20,9 @@ export default function Cart(props) {
         coursesInCart.push(element.name.replace(' Course', ''))
     });
 
+    localStorage.setItem('totalCost', totalCost)
+    localStorage.setItem('coursesInCart', coursesInCart)
+
     return (
         <>
             <Button
@@ -101,10 +104,7 @@ export default function Cart(props) {
                 </div>
             </Offcanvas>
             {
-                localStorage.setItem('totalCost', totalCost)
-            }
-            {
-                localStorage.setItem('coursesInCart', coursesInCart)
+
             }
         </>
     );

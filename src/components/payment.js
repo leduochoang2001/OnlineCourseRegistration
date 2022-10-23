@@ -10,7 +10,7 @@ function Payment() {
     const handleClick = () => {
         var getEmail = document.getElementById('email').value
 
-        if (getEmail !== '' && getEmail.includes('@')) {
+        if (getEmail.includes('@')) {
             const regisInfo = {
                 email: getEmail,
                 coursesRegistered: localStorage.getItem('coursesInCart'),
@@ -23,19 +23,20 @@ function Payment() {
             setCheckedOut(true)
 
             alert('An E-mail just have been sent to your E-mail Address')
+            localStorage.setItem('totalCost', 0)
         }
     }
 
     return (
         <div>
-            <div>
-                <div className='btn-home-cover'>
-                    <a href="/courses">
-                        <button className='btn-home'><span>{'<'}</span></button>
-                    </a>
-                </div>
-            </div>
             <div className='body-payment'>
+                <div className='btn-back-crs'>
+                    <div className='btn-home-cover'>
+                        <a href="/courses">
+                            <button className='btn-home'><span>{'<'}</span></button>
+                        </a>
+                    </div>
+                </div>
                 <form action="">
                     <div className="container-payment">
                         <div className="card-payment px-4">
@@ -44,7 +45,7 @@ function Payment() {
                                 <div className="col-12">
                                     <div className="d-flex flex-column">
                                         <p className="text-payment mb-1">Email Address</p>
-                                        <input class="form-control mb-3" id='email' type="email" placeholder="name@mailhost.com" required />
+                                        <input class="form-control mb-3" id='email' type="email" placeholder="name@host.com" required />
                                     </div>
                                 </div>
                                 <div className="col-12">
@@ -63,7 +64,7 @@ function Payment() {
                                 <div className="col-6">
                                     <div className="d-flex flex-column">
                                         <p className="text-payment mb-1">Expiry</p>
-                                        <input className="form-control mb-3" type="text" placeholder="MM/YYYY" required />
+                                        <input className="form-control mb-3" type="date" required />
                                     </div>
                                 </div>
                                 <div className="col-6">

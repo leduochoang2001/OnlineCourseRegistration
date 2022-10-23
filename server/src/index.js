@@ -7,10 +7,14 @@ const db = require('./config/database')
 const Course = require('./models/Course')
 const RegisterInfo = require('./models/RegisterInfo')
 
+// const nodemailer = require('nodemailer')
+
+//mailing
+
 //connect to database
 db.connect()
 
-
+//routing
 app.use(cors())
 
 app.use(express.json())
@@ -36,6 +40,7 @@ app.post('/registerinfo', (req, res) => {
     console.log(data)
     const info = new RegisterInfo(data)
     info.save()
+
 })
 
 app.listen(port, () => {
