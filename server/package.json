@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd .. && NPM_CONFIG_PRODUCTION=false npm install --force --prefix client && npm build --prefix client"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lehoang2001",
   "license": "ISC",
