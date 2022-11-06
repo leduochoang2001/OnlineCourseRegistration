@@ -20,9 +20,6 @@ app.use(cors())
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
 
 app.get('/courses', (req, res) => {
     Course.find({}, (err, docs) => {
@@ -43,6 +40,8 @@ app.post('/registerinfo', (req, res) => {
     info.save()
 
 })
+
+app.use(express.static(path.join(__dirname + '/public')))
 
 
 app.listen(port, () => {
