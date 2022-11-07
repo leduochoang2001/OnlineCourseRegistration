@@ -21,7 +21,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/courses', (req, res) => {
+app.get('/crs', (req, res) => {
     Course.find({}, (err, docs) => {
         if (!err) res.send(docs)
     });
@@ -41,7 +41,9 @@ app.post('/registerinfo', (req, res) => {
 
 })
 
-app.use(express.static(path.join(__dirname + '/public')))
+app.use(express.static(path.join(__dirname, '../../client/build')))
+
+app.get('*', (req, res) => res.sendFile(path.resolve('client', 'build', 'index.html')));
 
 
 app.listen(port, () => {

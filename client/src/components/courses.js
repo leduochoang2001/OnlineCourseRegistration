@@ -66,7 +66,7 @@ export default function Courses() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/courses")
+        fetch("http://localhost:5000/crs")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -175,8 +175,8 @@ export default function Courses() {
                                             <Card.Text>
                                                 {`$ ${item.price}`}
                                             </Card.Text>
-                                            <Button variant="primary" className='cardstl btn-act'>View Course</Button>
-                                            <Button onClick={() => onAdd(item)} variant="primary" className='cardstl btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
+                                            <Button className='btn-act'>View Course</Button>
+                                            <Button onClick={() => onAdd(item)} className='btn-act' style={{ 'margin-left': '16px' }}>Register</Button>
 
                                         </Card.Body>
                                     </Card>

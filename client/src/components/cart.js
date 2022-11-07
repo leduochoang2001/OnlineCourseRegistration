@@ -68,7 +68,7 @@ export default function Cart(props) {
                                                                     <h6><strong>{`$ ${item.price}`}</strong></h6>
                                                                 </div>
                                                                 <div class="col-xs-4">
-                                                                    <button type="button" class="btn btn-danger btn-act cardstl" onClick={() => onRemove(item)}>Remove</button>
+                                                                    <button type="button" class="btn btn-danger btn-act" onClick={() => onRemove(item)}>Remove</button>
                                                                 </div>
                                                             </div>
                                                         </div>
