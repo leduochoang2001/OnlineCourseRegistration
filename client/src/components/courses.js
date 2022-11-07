@@ -66,7 +66,7 @@ export default function Courses() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/crs")
+        fetch("https://onl-course-register.herokuapp.com/crs")
             .then(res => res.json())
             .then(
                 (result) => {
