@@ -27,7 +27,7 @@ app.get('/api/crs', (req, res) => {
     });
 })
 
-app.get('/registerinfo', (req, res) => {
+app.get('/api/registerinfo', (req, res) => {
     RegisterInfo.find({}, (err, docs) => {
         if (!err) res.send(docs)
     });
