@@ -17,7 +17,7 @@ function Payment() {
                 totalCost: localStorage.getItem('totalCost')
             }
 
-            axios.post('http://localhost:8080/registerinfo', regisInfo)
+            axios.post('https://onl-course-register.herokuapp.com/api/registerinfo', regisInfo)
                 .then(() => console.log('Sent to database!'))
                 .catch(error => (error) => console.log(error))
             setCheckedOut(true)

@@ -21,7 +21,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/crs', (req, res) => {
+app.get('/api/crs', (req, res) => {
     Course.find({}, (err, docs) => {
         if (!err) res.send(docs)
     });
@@ -33,7 +33,7 @@ app.get('/registerinfo', (req, res) => {
     });
 })
 
-app.post('/registerinfo', (req, res) => {
+app.post('/api/registerinfo', (req, res) => {
     const data = req.body
     console.log(data)
     const info = new RegisterInfo(data)
