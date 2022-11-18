@@ -10,20 +10,14 @@ function Footer() {
                 <MDBContainer className='text-center text-md-start mt-5'>
                     <MDBRow className='mt-3'>
                         <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>
-                                <MDBIcon icon="gem" className="me-3" />
-                                ADB Company
-                            </h6>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
-                            </p>
+                        </MDBCol>
+                        <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
                         </MDBCol>
 
                         <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+                            <h6 className='text-uppercase fw-bold mb-4'>Contact Us</h6>
                             <p>
-                                <MDBIcon icon="home" className="me-2" />
+                                <MDBIcon icon="home" className="me-3" />
                                 Hanoi,VietNam
                             </p>
                             <p>
